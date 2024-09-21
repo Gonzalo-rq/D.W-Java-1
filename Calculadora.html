@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora</title>
+    <script type="text/javascript">
+      function calc() {
+        var misiones = parseInt(document.getElementById("misiones").value);
+        var enemigos = parseInt(document.getElementById("enemigos").value);
+        var recompensa = document.getElementById("recompensa").value;
+        console.log(
+          "misiones: " +
+            misiones +
+            ", enemigos: " +
+            enemigos +
+            ", recompensa: " +
+            recompensa
+        );
+        var oro = 0;
+        var gemas = 0;
+        var experiencia = 0;
+        switch (recompensa) {
+          case "oro":
+            oro = misiones * 100 + enemigos * 10;
+            document.getElementById("resultado").innerHTML =
+              "Oro obtenido: " + oro;
+            break;
+          case "gemas":
+            gemas = misiones * 5 + enemigos * 1;
+            document.getElementById("resultado").innerHTML =
+              "Gemas acomuladas: " + gemas;
+            break;
+          case "experiencia":
+            experiencia = misiones * 500 + enemigos * 100;
+            document.getElementById("resultado").innerHTML =
+              "Experiencia reunida: " + experiencia;
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body style="background-color: moccasin">
+    <header style="background-color: rgb(121, 199, 230)">
+      <h1><strong>CALCULADORA DE RECOMPENSAS</strong></h1>
+    </header>
+    <main>
+      <h2>Calc</h2>
+      <p>Aqui puedes calcular las recompensas obtenidas en el juego:</p>
+      <label for="misiones">Num de misiones:</label>
+      <input type="text" id="misiones" placeholder="Num de misiones" /><br />
+      <label for="enemigos">Num de enemigos:</label>
+      <input type="text" id="enemigos" placeholder="Num de enemigos" /><br />
+      <label for="recompensa">Tipo de recompensa:</label>
+      <select id="recompensa">
+        <option value="oro">Oro</option>
+        <option value="gemas">Gemas</option>
+        <option value="experiencia">Experiencia</option>
+      </select>
+      <br />
+      <br />
+      <input type="button" value="Calc" onclick="calc();" /><br /><br />
+      <label id="resultado"></label>
+    </main>
+  </body>
+</html>
